@@ -9,6 +9,10 @@ public class ModelMapperConfig {
 
     @Bean
     public ModelMapper modelMapper() {
-        return new ModelMapper();
+        ModelMapper modelMapper = new ModelMapper();
+        // Globally Configure ModelMapper to skip null values for PATCH operations
+        // modelMapper.getConfiguration().setSkipNullEnabled(true);
+        // modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+        return modelMapper;
     }
 }
